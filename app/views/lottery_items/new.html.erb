@@ -1,0 +1,12 @@
+  <%= form_with action_name: lottery_items_path, model: @lottery_item, method: :post do |form| %>
+    <div class="container" style="height: 100vh; max-height: 100vh; justify-content: normal">
+      <%= label_tag :current_lottery_item, @lottery.current_lottery_item do |i| %>
+        <div class="winner" style="padding-top: 20%">
+          Дараагийн сугалааны дугаар
+          <br/>
+          <%= @lottery.current_lottery_item %>
+        </div>
+      <% end %>
+      <%= form.submit "Сугалах", class: 'black' %>
+    </div>
+  <% end %>

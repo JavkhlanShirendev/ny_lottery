@@ -1,0 +1,45 @@
+<h1>Сугалаа үүсгэх</h1>
+
+<%= link_to 'Шинэ сугалаа үүсгэх', new_lottery_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+
+      <th>
+        number of participants
+      </th>
+
+      <th>
+        number of items
+      </th>
+
+      <th>
+        Is active
+      </th>
+
+      <th>
+        Start
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lotteries.each do |lottery| %>
+      <tr>
+        <td><%= lottery.id %></td>
+        <td><%= lottery.number_of_participants %></td>
+        <td><%= lottery.number_of_items %></td>
+        <td><%= lottery.active? ? "active" : "disabled" %></td>
+        <td>
+          <% if lottery.active? %>
+            <%= link_to 'Start lottery', new_lottery_item_path %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

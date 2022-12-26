@@ -1,0 +1,44 @@
+<script>
+  window.countdown = 0000;
+
+  window.intervalId = setInterval(() => {
+    const countdownEl = document.getElementById('countdown');
+    if (window.countdown > 0) {
+      window.countdown = window.countdown - 300;
+      countdownEl.innerHTML = parseInt(window.countdown / 1000) + 1;
+    } else {
+      countdownEl.style.display = 'none';
+      document.getElementsByClassName('container')[0].style.display = 'flex';
+      clearInterval(intervalId)
+    }
+  }, 300);
+</script>
+
+<div id="countdown">
+</div>
+
+<div class="container" style="display: none; height: 100vh; max-height: 100vh;overflow: hidden">
+  <div class="parallax">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-xl-arcade.svg;">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-lg-arcade.svg;">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-md-arcade.svg;">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-sm-arcade.svg;">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-xs-arcade.svg">
+  </div>
+  <%= label_tag :current_lottery_item, @lottery.current_lottery_item do |i| %>
+    <div class="lottery">
+      Сугалааны дугаар:
+      <%= @lottery_item.lottery.current_lottery_item - 1 %>
+    </div>
+    <div class="winner">
+      Азтаны дугаар:
+      <br>
+      <%= @lottery_item.won_participant.no %>
+    </div>
+  <% end %>
+  <% if @lottery_item.lottery.has_next? %>
+    <%= link_to 'Дараагийнх', new_lottery_item_path, class: 'black' %>
+  <% else %>
+    <%= link_to 'Сугалааны дүн', lottery_items_path, class: 'black' %>
+  <% end %>
+</div>

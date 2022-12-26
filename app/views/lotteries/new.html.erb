@@ -1,0 +1,18 @@
+<div style="margin: 50px 300px">
+  <h1>Шинэ сугалаа</h1>
+
+  <%= form_with action_name: lotteries_path, model: @lottery, method: :post do |form| %>
+    <div style="padding: 10px">
+      <%= form.label :number_of_participants, 'Оролцогчдийн тоо', style: 'width: 150px; display: inline-block' %>
+      <%= form.text_field :number_of_participants %>
+    </div>
+
+    <div style="padding: 10px">
+      <%= form.label :number_of_items, 'Шагналын тоо', style: 'width: 150px; display: inline-block' %>
+      <%= form.text_field :number_of_items %>
+    </div>
+    <!-- basket form -->
+    <hr>
+    <%= form.submit 'Үүсгэх', style: 'padding: 10px; margin-left: 15px' %>
+  <% end %>
+</div>

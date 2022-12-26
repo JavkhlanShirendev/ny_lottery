@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="parallax">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-xl-arcade.svg;">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-lg-arcade.svg;">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-md-arcade.svg;">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-sm-arcade.svg;">
+    <img src="https://returnpath.com/assets/images/backgrounds/background-confetti-xs-arcade.svg">
+  </div>
+  <h1 class="title">Азтангууд</h1>
+  <div class="items">
+    <% @lottery_items.each_with_index do |lottery, index| %>
+      <div class="item">
+        <div class="no">
+          Сугалааны дугаар:  <strong><%= index + 1 %></strong>
+        </div>
+        <div class="item-winner">
+          Азтангийн дугаар:
+          <strong><%= lottery.won_participant.no %></strong>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div style="position: absolute; right: 5px; bottom: 5px">
+    <%= link_to 'restart', new_lottery_path, style: "color: white; text-decoration: none" %>
+  </div>
+</div>

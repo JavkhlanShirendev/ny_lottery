@@ -1,0 +1,2 @@
+module LotteryItemsHelper
+end
