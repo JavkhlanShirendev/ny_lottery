@@ -18,6 +18,7 @@ class LotteryItemsController < ApplicationController
   end
 
   def index
+    redirect_to new_lottery_path and return unless @lottery
     @lottery_items = @lottery.lottery_items
   end
 
